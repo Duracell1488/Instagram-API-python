@@ -994,3 +994,11 @@ class InstagramAPI:
             except KeyError as e:
                 break
         return liked_items
+
+def get_user_id_by_username(self, username):
+    """
+    Get id of user by username
+    """
+    url = 'https://www.instagram.com/{}/?__a=1'.format(username)
+    response = self.s.get(url).json()
+    return int(response['user']['id'])
